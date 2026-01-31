@@ -1,0 +1,412 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-top: 70px;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(180deg, #ffdbe8, #e8f5ff);
+  color: #222;
+  text-align: center;
+}
+
+/* 顶部导航 */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 30px;
+  background: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.nav-icon {
+  width: 40px;
+}
+
+.brand-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* 主视觉 */
+.hero {
+    position: relative;
+  z-index: 3;
+  
+  padding-top: 140px;
+  padding-bottom: 120px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 209, 220, 0.85),
+    rgba(255, 225, 235, 0.4),
+    rgba(255, 225, 235, 0)
+  );
+}
+
+/* 主logo */
+.main-logo {
+  width: 800px;
+  max-width: 100%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.tagline {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.subtitle {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* 按钮 */
+.start-btn {
+  background: #ffcc00;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 30px;
+   text-decoration: none;
+   color: #222;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.start-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+   text-decoration: none;
+}
+
+/* share*/
+.shared-bg {
+  position: relative;
+
+  background-image: url("photo-overlay.png");
+  background-size: cover;
+  background-position: center;
+
+  min-height: 180vh;
+}
+
+/* About */
+.playground-bg {
+  position: none;
+  min-height: 90vh;
+
+  display: flex;
+  align-items: center;
+
+  background-image: url("playground-bg.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.playground-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 225, 235, 0),
+    rgba(255, 225, 235, 0.6),
+    rgba(255, 225, 235, 0.9)
+  );
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+.playground-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("photo-overlay.png");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.15;   
+  filter: grayscale(60%) contrast(1.1);
+
+  pointer-events: none;
+}
+
+
+.about-content {
+  position: relative;
+  z-index: 2;
+
+  width: 45%;    /*背景尺寸*/
+  margin-left: 8vw;
+
+  background: rgba(255, 240, 240, 0.88);
+  backdrop-filter: blur(2px);
+  padding: 60px;
+  border-radius: 22px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+
+  font-family: "Comic Neue";
+}
+.about-content .hint {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 20px;
+  opacity: 0.65;
+}
+
+
+/* Mascot */
+
+.mascot {
+  background: #fce3ea;
+  padding: 80px 20px;
+}
+
+.mascot h2 {
+  margin-bottom: 10px;
+}
+
+.mascot-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.mascot-quote {
+  opacity: 0.8;
+  max-width: 400px;
+  margin: 10px auto 0;
+}
+
+
+/* 浮动动画 */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* 角色*/
+.character {
+  width: 400px;   
+  height: auto;
+  cursor: pointer;
+  margin: 30px auto 10px;
+  display: block;
+  animation: floatCharacter 3s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+/* 角色动态*/
+.character:hover {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* 情绪条按钮*/
+.emotion-btn {
+  margin-top: 15px;
+  padding: 14px 28px;
+  background: #ff6f91;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.emotion-btn:hover {
+  background: #ff3f6c;
+  transform: scale(1.05);
+}
+
+#p5-container canvas {
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  background: white;
+}
+.emotion-system {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff3f6;
+}
+
+
+/* ======================
+   Typography System
+   ====================== */
+
+body {
+  font-family: 'Comic Neue', cursive;
+  line-height: 1.6;
+}
+
+/* 标题 / UI / 强调 */
+h1, h2, h3,
+.brand-name,
+.start-btn,
+.emotion-btn {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+}
+
+
+/* Emotion page 字体 */
+
+.emotion-page {
+  font-family: 'Comic Neue', cursive;
+}
+
+.emotion-page h1 {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.emotion-page p {
+  font-family: 'Baloo 2', cursive;
+}
+
+/* System 部分 */
+.systems {
+  padding: 100px 0;
+  text-align: center;
+}
+.systems > * {
+  position: relative;
+  z-index: 1;
+}
+
+.systems-title {
+  font-family: "Fredoka", sans-serif;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.system-card {
+  background: rgb(255 255 255 / 50%);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.system-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+.system-card h3 {
+  font-family: "Baloo 2", cursive;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.system-card p {
+  font-family: "Comic Neue", cursive;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.system-card button {
+  font-family: "Fredoka", sans-serif;
+  background: #ffb3c7;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.system-card button:hover {
+  background: #ff6b8a;
+  transform: scale(1.05);
+}
+
+/*poppy*/
+
+.poppy-wrapper {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.speech-bubble {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(0.9);
+
+  min-width: 260px;
+  max-width: 360px;
+  padding: 18px 28px;
+
+  background: #fff;
+  border-radius: 999px;
+
+  font-family: "Baloo 2";
+  font-size: 14px;
+  line-height: 1.5;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+
+.speech-bubble.show {
+  opacity: 1;
+}
+
+
+
+
+.speech-bubble.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/*跳转*/
+
+html {
+  scroll-behavior: smooth;
+}
